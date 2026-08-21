@@ -1,0 +1,23 @@
+name: CI Panel de Monitoreo
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Descargar el repositorio
+        uses: actions/checkout@v4
+
+      - name: Configurar Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Ejecutar verificación básica
+        run: echo "Pipeline ejecutado correctamente para el Panel de Monitoreo."
