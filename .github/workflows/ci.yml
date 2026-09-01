@@ -1,4 +1,4 @@
-name: CI Panel de Monitoreo - Iluminacion Inteligente
+name: CI Panel de Monitoreo
 
 on:
   push:
@@ -25,7 +25,5 @@ jobs:
           pip install pytest
 
       - name: Ejecutar pruebas automatizadas con pytest
-        env:
-          PYTHONPATH: src
         run: |
-          pytest
+          python -m pytest
