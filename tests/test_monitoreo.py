@@ -1,5 +1,5 @@
 import pytest
-from src.panel_app.monitoreo import PanelMonitoreoService
+from panel_app.monitoreo import PanelMonitoreoService
 
 def test_encendido_automatico_al_detectar_presencia():
     """CP-I02: Incrementa contador y activa la zona al detectar presencia"""

@@ -1,14 +1,21 @@
-# Sistema de Gestión IoT — Módulo Panel de Monitoreo y Configuración
+# Panel de Monitoreo IoT - Iluminación Inteligente
 
-**Grupo:** G15  
-**Módulo:** Panel de Monitoreo y Configuración (RF07, RF08, RF09)  
-**Stack Seleccionado:** Python + Django + PostgreSQL  
-**Integrantes:** Karen Jaela Aguinda Grefa  
+Este proyecto implementa la lógica de control y monitoreo para un sistema inteligente de iluminación de doble zona con detección de presencia.
 
----
+## 🚀 Estructura del Proyecto
 
-## Flujo de Trabajo (GitHub Flow)
-
-1. **Rama Principal (`main`):** Contiene el código estable y probado.
-2. **Ramas de Trabajo (`feature/*`):** Todo desarrollo nuevo se realiza en una rama independiente (ej. `feature/setup-inicial`).
-3. **Pull Requests (PR):** Ningún cambio entra directamente a `main`. Se integra mediante un PR tras pasar las verificaciones automáticas de CI.
+```text
+panel-monitoreo-iot/
+├── .github/
+│   └── workflows/
+│       └── ci.yml          # Pipeline de Integración Continua (GitHub Actions)
+├── src/
+│   └── panel_app/
+│       ├── __init__.py
+│       └── monitoreo.py    # Lógica principal de sensores y temporizadores
+├── tests/
+│   ├── __init__.py
+│   └── test_monitoreo.py  # Pruebas unitarias e integración con Pytest
+├── .gitignore               # Exclusión de archivos innecesarios para Git
+├── pytest.ini               # Configuración de rutas de importación para Pytest
+└── README.md
