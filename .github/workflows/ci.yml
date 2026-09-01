@@ -25,5 +25,7 @@ jobs:
           pip install pytest
 
       - name: Ejecutar pruebas automatizadas con pytest
+        env:
+          PYTHONPATH: src
         run: |
           pytest
