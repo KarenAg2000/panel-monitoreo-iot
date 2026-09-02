@@ -1,24 +1,31 @@
 class PanelMonitoreoService:
-    """
-    Módulo para atender los requerimientos:
-    - RF07: Visualización del estado de sensores IoT
-    - RF08: Configuración de parámetros de alerta
-    - RF09: Registro y consulta de historial de eventos
-    """
-
     def __init__(self):
-        self.configuraciones = {
-            "umbral_temperatura": 35.0,
-            "estado_alertas": True
-        }
+        self.personas_presentes = 0
+        self.zona_a_activa = False
+        self.temporizador_segundos = 30
+
+    def incrementar_contador(self):
+        self.personas_presentes += 1
+        if self.personas_presentes > 0:
+            self.zona_a_activa = True
+        return self.personas_presentes
+
+    def decrementar_contador(self):
+        if self.personas_presentes > 0:
+            self.personas_presentes -= 1
+        if self.personas_presentes == 0:
+            self.zona_a_activa = False
+        return self.personas_presentes
+
+    def configurar_temporizador(self, segundos: int):
+        if segundos <= 0:
+            raise ValueError("El temporizador debe ser mayor a 0 segundos")
+        self.temporizador_segundos = segundos
+        return self.temporizador_segundos
 
     def obtener_estado_sensores(self):
         return {
-            "estado_sistema": "OPERATIVO",
-            "sensores_activos": 5,
-            "ultima_lectura": "OK"
+            "personas_presentes": self.personas_presentes,
+            "zona_a_activa": self.zona_a_activa,
+            "temporizador_segundos": self.temporizador_segundos
         }
-
-    def actualizar_configuracion(self, nuevo_umbral):
-        self.configuraciones["umbral_temperatura"] = nuevo_umbral
-        return f"Umbral actualizado exitosamente a {nuevo_umbral}°C"
